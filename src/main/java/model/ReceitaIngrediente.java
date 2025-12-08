@@ -6,51 +6,60 @@ import javax.persistence.*;
 @Table(name = "receita_ingrediente")
 public class ReceitaIngrediente {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 
-    @ManyToOne
-    @JoinColumn(name = "receita_id")
-    private Receita receita;
+	@ManyToOne
+	@JoinColumn(name = "receita_id")
+	private Receita receita;
 
-    @ManyToOne
-    @JoinColumn(name = "ingrediente_id")
-    private Ingrediente ingrediente;
+	@ManyToOne
+	@JoinColumn(name = "ingrediente_id")
+	private Ingrediente ingrediente;
 
-    @Column(nullable = false, length = 100)
-    private String unidadeMedida; 
+	@Column(nullable = false, length = 100)
+	private String unidadeMedida;
 
-    public ReceitaIngrediente() {
-    }
-    
+	@Column(nullable = false)
+	private double quantidade;
 
+	public double getQuantidade() {
+		return quantidade;
+	}
 
-    public long getId() {
-        return id;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public Receita getReceita() {
-        return receita;
-    }
+	public void setQuantidade(double quantidade) {
+		this.quantidade = quantidade;
+	}
 
-    public void setReceita(Receita receita) {
-        this.receita = receita;
-    }
+	public ReceitaIngrediente() {
+	}
 
-    public Ingrediente getIngrediente() {
-        return ingrediente;
-    }
+	public Receita getReceita() {
+		return receita;
+	}
 
-    public void setIngrediente(Ingrediente ingrediente) {
-        this.ingrediente = ingrediente;
-    }
+	public void setReceita(Receita receita) {
+		this.receita = receita;
+	}
 
-    public String getUnidadeMedida() {
-        return unidadeMedida;
-    }
+	public Ingrediente getIngrediente() {
+		return ingrediente;
+	}
 
-    public void setUnidadeMedida(String unidadeMedida) {
-        this.unidadeMedida = unidadeMedida;
-    }
+	public void setIngrediente(Ingrediente ingrediente) {
+		this.ingrediente = ingrediente;
+	}
+
+	public String getUnidadeMedida() {
+		return unidadeMedida;
+	}
+
+	public void setUnidadeMedida(String unidadeMedida) {
+		this.unidadeMedida = unidadeMedida;
+	}
 }
