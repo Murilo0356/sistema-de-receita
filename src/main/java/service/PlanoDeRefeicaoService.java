@@ -7,11 +7,7 @@ import java.util.List;
 
 public class PlanoDeRefeicaoService {
 
-    private PlanoDeRefeicaoDao planoDao;
-
-    public PlanoDeRefeicaoService() {
-        this.planoDao = new PlanoDeRefeicaoDao();
-    }
+     PlanoDeRefeicaoDao planoDao = new PlanoDeRefeicaoDao();
 
     public String criarPlano(PlanoDeRefeicao plano, Usuario usuario) {
         if (plano == null || usuario == null) {
@@ -34,8 +30,8 @@ public class PlanoDeRefeicaoService {
             try {
                 planoDao.salvar(plano);
                 return "Plano de Refeição criado com sucesso!";
-            } catch (Exception e) {
-                return "Erro ao salvar plano: " + e.getMessage();
+            } catch (Exception execao) {
+                return "Erro ao salvar plano: " + execao.getMessage();
             }
         }
     }

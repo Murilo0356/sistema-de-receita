@@ -5,12 +5,7 @@ import model.Usuario;
 
 public class UsuarioService {
 
-    private UsuarioDao usuarioDao;
-
-    public UsuarioService() {
-        this.usuarioDao = new UsuarioDao();
-    }
-
+     UsuarioDao usuarioDao = new UsuarioDao();
     public String cadastrarUsuario(Usuario usuario) {
         
         if (usuario == null) {

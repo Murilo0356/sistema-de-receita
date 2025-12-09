@@ -7,11 +7,7 @@ import java.util.List;
 
 public class ReceitaService {
 
-	private ReceitaDao receitaDao;
-
-	public ReceitaService() {
-		this.receitaDao = new ReceitaDao();
-	}
+	 ReceitaDao receitaDao = new ReceitaDao();
 
 	public String cadastrarReceita(Receita receita) {
 

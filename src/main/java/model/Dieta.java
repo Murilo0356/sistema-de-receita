@@ -17,7 +17,7 @@ public class Dieta {
     @Column(nullable = false, unique = true)
     private TipoDieta tipo;
 
-    @Lob
+    @Column(nullable = false, unique = true)
     private String descricao;
 
     @OneToMany(mappedBy = "dieta", fetch = FetchType.LAZY)
