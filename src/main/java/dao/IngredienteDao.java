@@ -2,7 +2,6 @@ package dao;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import model.Ingrediente;
 
 public class IngredienteDao extends GenericDao<Ingrediente> {

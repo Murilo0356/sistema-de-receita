@@ -54,10 +54,9 @@ public class ReceitaDao extends GenericDao<Receita> {
 		EntityManager em = getEntityManager();
 		try {
 
-			String jpql = "SELECT r FROM PlanoReceita pr " + "JOIN pr.receita r " + "GROUP BY r "
-					+ "ORDER BY COUNT(pr) DESC";
+			String receitasPopulares = "SELECT r FROM PlanoReceita pr " + "JOIN pr.receita r " + "GROUP BY r "+ "ORDER BY COUNT(pr) DESC";
 
-			return em.createQuery(jpql, Receita.class).setMaxResults(limite) // Ex: Trazer só as top 5
+			return em.createQuery(receitasPopulares, Receita.class).setMaxResults(limite) 
 					.getResultList();
 		} finally {
 			em.close();
