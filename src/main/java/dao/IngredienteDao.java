@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import model.Ingrediente;
 
 public class IngredienteDao extends GenericDao<Ingrediente> {
@@ -26,7 +27,9 @@ public class IngredienteDao extends GenericDao<Ingrediente> {
             return em.createQuery("SELECT i FROM Ingrediente i WHERE LOWER(i.descricao) = LOWER(:nome)", Ingrediente.class)
                      .setParameter("nome", nome)
                      .getSingleResult();
-        }  finally {
+        } catch (NoResultException execao) {
+            return null;
+        } finally {
             em.close();
         }
     }

@@ -11,23 +11,21 @@ public class InformacaoNutricional {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    // Descrição (ex: "Porção de 100g")
+   
     @Column(length = 255)
     private String descricao; 
 
-    // Quantidade (ex: Calorias, Proteínas, etc. 
-    // Seu modelo original estava simples, mantive assim)
+  
     @Column
     private double quantidade;
 
-    // Lado inverso do relacionamento com Ingrediente
+   
     @OneToOne(mappedBy = "informacaoNutricional")
     private Ingrediente ingrediente;
     
     public InformacaoNutricional() {
     }
 
-    // --- Getters e Setters ---
 
     public long getId() {
         return id;

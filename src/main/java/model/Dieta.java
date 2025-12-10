@@ -26,8 +26,6 @@ public class Dieta {
     public Dieta() {
     }
 
-
-
     public long getId() {
         return id;
     }

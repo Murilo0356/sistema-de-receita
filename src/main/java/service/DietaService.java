@@ -8,8 +8,6 @@ public class DietaService {
 
   DietaDao dietaDao  = new DietaDao();
 
- 
-
     public List<Dieta> listarTodas() {
         return dietaDao.listarTodas();
     }

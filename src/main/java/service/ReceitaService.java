@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ReceitaService {
 
-	 ReceitaDao receitaDao = new ReceitaDao();
+	ReceitaDao receitaDao = new ReceitaDao();
 
 	public String cadastrarReceita(Receita receita) {
 
@@ -43,7 +43,6 @@ public class ReceitaService {
 		double total = 0.0;
 
 		for (ReceitaIngrediente item : receita.getIngredientes()) {
-
 			if (item.getIngrediente() != null && item.getIngrediente().getInformacaoNutricional() != null) {
 
 				double caloriasPorUnidade = item.getIngrediente().getInformacaoNutricional().getQuantidade();
@@ -52,10 +51,24 @@ public class ReceitaService {
 				total += (caloriasPorUnidade * quantidadeUsada);
 			}
 		}
-		return total;
-	}
 
+		return Math.round(total * 100.0) / 100.0;
+	}
+	public List<Receita> buscarPorTitulo(String termo) {
+        return receitaDao.buscarPorTitulo(termo);
+    }
 	public List<Receita> listarTodas() {
 		return receitaDao.listarTodas();
 	}
+	public Receita buscarPorId(long id) {
+        return receitaDao.buscarPorId(id);
+    }
+
+    public void atualizarReceita(Receita receita) {
+        receitaDao.atualizar(receita);
+    }
+
+    public void removerReceita(long id) {
+        receitaDao.remover(id);
+    }
 }
