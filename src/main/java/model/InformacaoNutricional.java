@@ -2,7 +2,6 @@ package model;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "informacao_nutricional")
 public class InformacaoNutricional {
@@ -11,32 +10,18 @@ public class InformacaoNutricional {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-<<<<<<< HEAD
-   
-=======
-    
->>>>>>> 10356997b969cc1b6329196c1ea71726e5b4acd7
     @Column(length = 255)
     private String descricao; 
 
-  
     @Column
     private double quantidade;
 
-<<<<<<< HEAD
-   
-=======
->>>>>>> 10356997b969cc1b6329196c1ea71726e5b4acd7
     @OneToOne(mappedBy = "informacaoNutricional")
     private Ingrediente ingrediente;
     
     public InformacaoNutricional() {
     }
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 10356997b969cc1b6329196c1ea71726e5b4acd7
     public long getId() {
         return id;
     }
