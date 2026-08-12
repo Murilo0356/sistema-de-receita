@@ -405,7 +405,6 @@ public class Main {
         String confirmacao = scanner.nextLine();
 
         if (confirmacao.equalsIgnoreCase("s")) {
-            // EXECUÇÃO DIRETA (Sem Try-Catch)
             receitaService.removerReceita(id);
             System.out.println("Receita excluída com sucesso.");
         } else {
